@@ -7,7 +7,7 @@ $( document ).ready(function() {
         wrong: 0,
         answered: 0,
         theCorrectAnswer: "",
-        questions: ["question1", "question2"],
+        questions: ["question1", "question2", "question3"],
         question1: {
             question: "HI?",
             answers:["1", "2", "3", "4"],
@@ -17,6 +17,11 @@ $( document ).ready(function() {
             question: "H?",
             answers:["11", "22", "33", "44"],
             correctAnswer: "22"
+        },
+        question3: {
+            question: "H3?",
+            answers:["111", "222", "333", "444"],
+            correctAnswer: "111"
         },
         count: function() {
 
@@ -35,7 +40,12 @@ $( document ).ready(function() {
                     console.log("hi")
                     clearInterval(intervalId);
                     trivia.qPhase = true
+                    if(trivia.answered !== trivia.questions.length){
                     trivia.questionPhase()
+                }
+                else{
+                    trivia.resultsPhase()
+                }
                 }
 
 
@@ -47,11 +57,6 @@ $( document ).ready(function() {
 
             var div = $("<div>");
             div.addClass("card w-100");
-
-            // var clock = $("<h6>")
-            // clock.addClass("clock")
-            // clock.text("Time Remaining: " + trivia.time + " Seconds")
-            // div.append(clock)
 
             var Q = $("<h6>")
             Q.text(trivia[trivia.questions[trivia.answered]]["question"])
@@ -77,9 +82,11 @@ $( document ).ready(function() {
             intervalId = setInterval(trivia.count, 1000);
 
             $('.container').on("click",".Answer", function(){
+                if(trivia.qPhase){
                 clearInterval(intervalId);
                 trivia.qPhase = false
                 trivia.answerPhase($(this).attr('value'))
+            }
             })
 
             
@@ -87,6 +94,18 @@ $( document ).ready(function() {
         answerPhase: function(answer) {
             if(answer === trivia[trivia.questions[trivia.answered]]["correctAnswer"]){
                 $("#game").empty();
+                var div = $("<div>");
+                div.addClass("card w-100");
+
+                var C = $("<h3>")
+                C.text("Congratulations!")
+                div.append(C)
+
+                var Y = $("<h5>")
+                Y.text("You were right!")
+                div.append(Y)
+
+                $("#game").append(div)
             }
             else{
                $(".A" + (1 + trivia[trivia.questions[trivia.answered]]["answers"].indexOf(trivia[trivia.questions[trivia.answered]]["correctAnswer"]))).attr("style", "background-color: green;")
@@ -95,12 +114,38 @@ $( document ).ready(function() {
             $(".clock").text("Time Remaining: " + trivia.time + " Seconds");
             trivia.answered++
             intervalId = setInterval(trivia.count, 1000);
-            
-            
-            
         },
         resultsPhase: function() {
+            $("#game").empty();
 
+            var div = $("<div>");
+            div.addClass("card w-100");
+
+            var C = $("<h3>")
+            C.text("Your Score")
+            div.append(C)
+
+            var Y = $("<h5>")
+            Y.text("Correct: ")
+            div.append(Y)
+
+            var Y = $("<h5>")
+            Y.text("Wrong: ")
+            div.append(Y)
+
+            var C = $("<h4>")
+            C.text("Would you like to play agian?")
+            div.append(C)
+
+            var btn = $("<button>")
+            btn.text("Replay")
+            div.append(btn)
+
+            $("#game").append(div)
+
+            $('.container').on("click","button", function(){
+                trivia.reset()
+            })
         },
         reset: function() {
 
