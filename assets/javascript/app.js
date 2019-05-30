@@ -83,7 +83,7 @@ $( document ).ready(function() {
             $("#game").append(div)
 
             trivia.theCorrectAnswer = trivia[trivia.questions[trivia.answered]]["correctAnswer"]
-            trivia.time = 10
+            trivia.time = 20
             $(".clock").text("Time Remaining: " + trivia.time + " Seconds");
             intervalId = setInterval(trivia.count, 1000);
 
@@ -142,7 +142,7 @@ $( document ).ready(function() {
             div.append(Y)
 
             var C = $("<h4>")
-            C.text("Would you like to play agian?")
+            C.text("Would you like to play again?")
             div.append(C)
 
             var btn = $("<button>")
@@ -151,7 +151,7 @@ $( document ).ready(function() {
             div.append(btn)
 
             $("#game").append(div)
-            $(".clock").text("Time Remaining: ∞");
+            $(".clock").text("Thanks for playing!");
 
             $('.container').on("click","button", function(){
                 trivia.reset()
