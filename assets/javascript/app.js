@@ -7,6 +7,7 @@ $( document ).ready(function() {
         wrong: 0,
         answered: 0,
         theCorrectAnswer: "",
+        submitedAnswer:"",
         questions: ["question1", "question2", "question3", "question4", "question5"],
         question1: {
             question: "Which one of these is not a berry?",
@@ -90,6 +91,8 @@ $( document ).ready(function() {
             $('.container').on("click",".Answer", function(){
                 if(trivia.qPhase){
                 clearInterval(intervalId);
+                trivia.submitedAnswer = $(this).attr('value')
+                console.log(trivia.submitedAnswer)
                 trivia.qPhase = false
                 trivia.answerPhase($(this).attr('value'))
             }
@@ -116,8 +119,10 @@ $( document ).ready(function() {
             }
             else{
                $(".A" + (1 + trivia[trivia.questions[trivia.answered]]["answers"].indexOf(trivia[trivia.questions[trivia.answered]]["correctAnswer"]))).attr("style", "background-color: green;")
+               $(".A" + (1 + trivia[trivia.questions[trivia.answered]]["answers"].indexOf(trivia.submitedAnswer))).attr("style", "background-color: red;")
                trivia.wrong++
             }
+            trivia.submitedAnswer = ""
             trivia.time = 3
             $(".clock").text("Time Remaining: " + trivia.time + " Seconds");
             trivia.answered++
