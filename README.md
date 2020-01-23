@@ -8,4 +8,7 @@ When you load the page, the game starts automatically.  You’ll be given 20 sec
 
 If you would like to play this game, go to the following link: [Here](https://bigecire.github.io/Fruiti-Trutti-Trivia/)
 
+## Technology Used
+HTML, CSS, JavaScript, jQuery, and Bootstrap
+
 Eric Sanders is the full stack developer of this project.
