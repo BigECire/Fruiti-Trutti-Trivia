@@ -34,6 +34,11 @@ $( document ).ready(function() {
             answers:["Wonderland Tree", "Chimera tree", "Fruit Salad Tree", "Cornucopia Tree"],
             correctAnswer: "Fruit Salad Tree"
         },
+        question6: {
+            question6: "A ______ is not a fruit, it is a herb!",
+            answers:["Advocado", "Banana", "Pear", "Cerry"],
+            correctAnswer: "Banana"
+        },
         count: function() {
 
             trivia.time--;
@@ -173,8 +178,3 @@ $( document ).ready(function() {
     }
     trivia.questionPhase()
 })
-// question: {
-//     question: "",
-//     answers:["", "", "", ""],
-//     correctAnswer: ""
-// },
