@@ -45,8 +45,8 @@ $( document ).ready(function() {
             correctAnswer: "Banana"
         },
         question7: {
-            question: "An apple tree can produce up to 400 apples a year",
-            answers:["Advocado", "Banana", "400", "Cerry"],
+            question: "An apple tree can produce up to ____ apples a year",
+            answers:["200", "300", "400", "500"],
             correctAnswer: "400"
         },
         count: function() {
