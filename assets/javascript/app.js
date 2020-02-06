@@ -35,7 +35,7 @@ $( document ).ready(function() {
             correctAnswer: "Fruit Salad Tree"
         },
         question6: {
-            question6: "A ______ is not a fruit, it is a herb!",
+            question: "A ______ is not a fruit, it is a herb!",
             answers:["Advocado", "Banana", "Pear", "Cerry"],
             correctAnswer: "Banana"
         },
