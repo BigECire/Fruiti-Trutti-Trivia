@@ -8,7 +8,7 @@ $( document ).ready(function() {
         answered: 0,
         theCorrectAnswer: "",
         submitedAnswer:"",
-        questions: ["question1", "question2", "question3", "question4", "question5", "question6"],
+        questions: ["question1", "question2", "question3", "question4", "question5", "question6", "question7"],
         question1: {
             question: "Which one of these is not a berry?",
             answers:["Avocados", "Bananas", "Strawberries", "Watermelon"],
