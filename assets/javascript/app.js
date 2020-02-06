@@ -44,6 +44,11 @@ $( document ).ready(function() {
             answers:["Advocado", "Banana", "Pear", "Cerry"],
             correctAnswer: "Banana"
         },
+        question7: {
+            question: "An apple tree can produce up to 400 apples a year",
+            answers:["Advocado", "Banana", "400", "Cerry"],
+            correctAnswer: "400"
+        },
         count: function() {
 
             trivia.time--;
