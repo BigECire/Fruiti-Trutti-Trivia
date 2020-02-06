@@ -36,8 +36,8 @@ $( document ).ready(function() {
         },
         question6: {
             question: "Orangutans love what fruit the most!",
-            answers:["Star fruit", "Banana", "Mango", "Orange"],
-            correctAnswer: "Mango"
+            answers:["Star fruits", "Bananas", "Mangos", "Oranges"],
+            correctAnswer: "Mangos"
         },
         question7: {
             question: "A ______ is not a fruit, it is a herb!",
